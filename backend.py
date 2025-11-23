@@ -5,11 +5,17 @@ from google.oauth2.service_account import Credentials
 from datetime import datetime
 
 # Connect to Google Sheets using Streamlit Secrets
+
 def get_gsheet_client():
+    scopes = [
+        "https://www.googleapis.com/auth/spreadsheets",
+        "https://www.googleapis.com/auth/drive"
+    ]
     creds_dict = st.secrets["gcp_service_account"]
-    creds = Credentials.from_service_account_info(creds_dict)
+    creds = Credentials.from_service_account_info(creds_dict, scopes=scopes)
     client = gspread.authorize(creds)
     return client
+
 
 # Load all sheets
 def load_data(sheet_url):
@@ -103,4 +109,5 @@ def monthly_summary(payments, borrowers, month, year):
         "outstanding_principal": outstanding_principal,
         "profit": interest_income
     }
+
 
