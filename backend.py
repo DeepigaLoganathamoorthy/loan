@@ -1,3 +1,4 @@
+import streamlit as st
 import gspread
 import pandas as pd
 from google.oauth2.service_account import Credentials
@@ -102,3 +103,4 @@ def monthly_summary(payments, borrowers, month, year):
         "outstanding_principal": outstanding_principal,
         "profit": interest_income
     }
+
