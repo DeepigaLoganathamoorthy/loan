@@ -8,7 +8,8 @@ from backend import (
     monthly_summary
 )
 
-SHEET_URL = "https://docs.google.com/spreadsheets/d/1mrzN660Krk-JF1E9pUtSscS9uOACk6b8/edit"
+SHEET_URL = "https://docs.google.com/spreadsheets/d/1pS0OCxO8tg85gVdOz8XeVw_WAvmXeVLHGHWompwFPjo/edit"
+
 
 st.set_page_config(page_title="Family Loan Tracker", layout="wide")
 
@@ -95,3 +96,4 @@ with tab3:
     st.write("### Borrowers with Pending Interest")
     pending = borrowers[borrowers["interest_remaining"] > 0][["name", "interest_remaining"]]
     st.table(pending)
+
